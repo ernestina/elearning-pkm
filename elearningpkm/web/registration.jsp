@@ -63,7 +63,7 @@
                   <td bgcolor="#00CCFF">Retype Password </td>
                   <td bgcolor="#00CCFF">:</td>
                   <td colspan="7" bgcolor="#00CCFF"><label for="label3"></label>
-                  <input name="password" type="text" size="20" maxlength="20" ></td>
+                  <input name="password2" type="text" size="20" maxlength="20" ></td>
                 </tr>
                 <tr>
                   <td bgcolor="#00CCFF">Role</td>
