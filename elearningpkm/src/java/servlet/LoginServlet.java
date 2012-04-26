@@ -39,12 +39,14 @@ public class LoginServlet extends HttpServlet {
             User user = new User();
             user = usr.getUser(username, password);
 
-            if (username.equals("") || password.equals("")) {
-                request.setAttribute("error", "Username/Password tidak boleh kosong!");
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            if (username.equals("") && password.equals("")) {
+//                request.setAttribute("error", "Username/Password tidak boleh kosong!");
+                out.println("Username dan password tidak boleh kosong!");
+                request.getRequestDispatcher("/index.jsp").include(request, response);
             } else if (usr.check(username, password) == false) {
-                request.setAttribute("error2", "Username/Password tidak terdaftar");
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
+//                request.setAttribute("error2", "Username/Password tidak terdaftar");
+                out.println("Username dan password tidak terdaftar!");
+                request.getRequestDispatcher("/index.jsp").include(request, response);
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("username", username);

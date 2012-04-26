@@ -10,6 +10,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Elearning:LMS Community</title>
+        <link href="*" rel="stylesheet" type="text/css">
+        <link href="file:///C|/Users/meccanic/Documents/NetBeansProjects/elearning/trunk/elearningpkm/web/stylesheet.css" rel="stylesheet" type="text/css">
     </head>
     <body>
     <table width="1024" border="0" align="center" cellspacing="0" bordercolor="#CCCCCC">
@@ -24,7 +26,7 @@
                     <td><form name="form1" method="post" action="login">
                       <table width="222" border="0">
                         <tr>
-                          <td colspan="3" bgcolor="#0066FF">Login</td>
+                          <td colspan="3" bgcolor="#0066FF"><strong>Login</strong></td>
                         </tr>
                         <tr>
                           <td width="59">username</td>
