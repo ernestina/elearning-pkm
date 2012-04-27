@@ -32,7 +32,7 @@ a:active {
     <body>
     <table width="1024" border="0" align="center" cellspacing="0" bordercolor="#CCCCCC">
           <tr>
-            <td height="124"><img src="header.jpg" width="1053" height="120" align="absmiddle">
+            <td height="124"><img src="logo2.png" width="1058" height="188">
               <table width="1053" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home&gt;&gt;</a></div></th>
@@ -50,7 +50,7 @@ a:active {
                     <td><form name="form1" method="post" action="login">
                       <table width="222" border="0">
                         <tr>
-                          <td width="206" bgcolor="#0066FF"><strong>MyMenu</strong></td>
+                          <td width="206" bgcolor="#80BFBF"><strong>MyMenu</strong></td>
                         </tr>
                         <tr>
                           <td><a href="admin_ubah_profil.jsp">Ubah Profil</a> </td>
@@ -86,7 +86,7 @@ a:active {
                   <tr>
                     <td width="819"><table width="813" border="1" cellpadding="0" cellspacing="0">
                       <tr>
-                        <th width="809" bgcolor="#0066FF" scope="col"><div align="left">Daftar Course Aktif </div></th>
+                        <th width="809" bgcolor="#80BFBF" scope="col"><div align="left">Daftar Course Aktif </div></th>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>
@@ -96,7 +96,7 @@ a:active {
                   <tr>
                     <td><table width="812" border="1" cellpadding="0" cellspacing="0">
                       <tr>
-                        <th width="808" bgcolor="#0066FF" scope="col"><div align="left">Daftar Seluruh Course </div></th>
+                        <th width="808" bgcolor="#80BFBF" scope="col"><div align="left">Daftar Seluruh Course </div></th>
                       </tr>
                       <tr>
                         <td>&nbsp;</td>

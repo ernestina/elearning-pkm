@@ -33,7 +33,7 @@ a:active {
     <body>
     <table width="1024" border="0" align="center" cellspacing="0" bordercolor="#CCCCCC">
           <tr>
-            <td height="124"><img src="header.jpg" width="1053" height="120" align="absmiddle">
+            <td height="124"><img src="logo2.png" width="1056" height="187">
               <table width="1053" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <th width="815" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home</a> &gt;&gt; <a href="admin_manajemen_kelas.jsp">Manajemen Kelas </a>&gt;&gt; <a href="admin_manajemen_kelas_add.jsp">Add </a></div></th>
@@ -51,7 +51,7 @@ a:active {
                     <td><form name="form1" method="post" action="login">
                       <table width="222" border="0">
                         <tr>
-                          <td width="206" bgcolor="#0066FF"><strong>MyMenu</strong></td>
+                          <td width="206" bgcolor="#80BFBF"><strong>MyMenu</strong></td>
                         </tr>
                         <tr>
                           <td><a href="admin_ubah_profil.jsp">Ubah Profil </a></td>
@@ -87,7 +87,7 @@ a:active {
                   <tr>
                     <td width="669"><table width="814" border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        <th width="814" bgcolor="#0066FF" scope="col"><div align="left">Add Data Kelas  </div></th>
+                        <th width="814" bgcolor="#80BFBF" scope="col"><div align="left">Add Data Kelas  </div></th>
                       </tr>
                       <tr>
                         <td><form action="" method="post" enctype="multipart/form-data" name="form2">

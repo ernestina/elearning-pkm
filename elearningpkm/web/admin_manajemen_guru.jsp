@@ -35,7 +35,7 @@ a:active {
     <body>
     <table width="1024" border="0" align="center" cellspacing="0" bordercolor="#CCCCCC">
           <tr>
-            <td height="124"><img src="header.jpg" width="1053" height="120" align="absmiddle">
+            <td height="124"><img src="logo2.png" width="1059" height="168">
               <table width="1053" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home</a> &gt;&gt; <a href="admin_manajemen_guru.jsp">Manajemen Guru </a></div></th>
@@ -53,7 +53,7 @@ a:active {
                     <td width="184"><form name="form1" method="post" action="login">
                       <table width="184" border="0" align="left">
                         <tr>
-                          <td width="167" bgcolor="#0066FF"><strong>MyMenu</strong></td>
+                          <td width="167" bgcolor="#80BFBF"><strong>MyMenu</strong></td>
                         </tr>
                         <tr>
                           <td><a href="admin_ubah_profil.jsp">Ubah Profil </a></td>
@@ -89,7 +89,7 @@ a:active {
                   <tr>
                     <td width="853"><table width="849" border="0" cellpadding="0" cellspacing="0">
                       <tr>
-                        <th width="849" bgcolor="#0066FF" scope="col"><div align="left">Daftar Guru </div></th>
+                        <th width="849" bgcolor="#80BFBF" scope="col"><div align="left">Daftar Guru </div></th>
                       </tr>
                       <tr>
                         <td><form action="" method="post" enctype="multipart/form-data" name="form2">
