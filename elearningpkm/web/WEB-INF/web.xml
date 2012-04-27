@@ -2,23 +2,23 @@
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>servlet.LoginServlet</servlet-class>
+        <servlet-class>controller.LoginServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>MainServlet</servlet-name>
-        <servlet-class>servlet.MainServlet</servlet-class>
+        <servlet-class>controller.MainServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>HomeServlet</servlet-name>
-        <servlet-class>servlet.HomeServlet</servlet-class>
+        <servlet-class>controller.HomeServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>servlet.RegisterServlet</servlet-class>
+        <servlet-class>controller.RegisterServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ProsesRegisterServlet</servlet-name>
-        <servlet-class>servlet.ProsesRegisterServlet</servlet-class>
+        <servlet-name>ProsesRegister</servlet-name>
+        <servlet-class>controller.ProsesRegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -37,7 +37,7 @@
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ProsesRegisterServlet</servlet-name>
+        <servlet-name>ProsesRegister</servlet-name>
         <url-pattern>/prosesregister</url-pattern>
     </servlet-mapping>
     <session-config>
@@ -46,6 +46,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index2.jsp</welcome-file>
+        <welcome-file>home.jsp</welcome-file>
     </welcome-file-list>
 </web-app>

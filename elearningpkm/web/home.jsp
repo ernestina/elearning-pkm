@@ -15,7 +15,7 @@
     <body>
         <table width="1024" border="0" align="center" cellspacing="0" bordercolor="#CCCCCC">
             <tr>
-                <td height="124"><img src="logo2.png" width="1024" height="150"></td>
+                <td height="124"><img src="header.jpg" width="1048" height="120" align="absmiddle"></td>
             </tr>
             <tr>
                 <td height="124" align="center" valign="top"><table width="1024" border="0" align="center" cellspacing="0">
@@ -49,7 +49,9 @@
                                                                 <div align="right"><em>click here to register... </em></div>
                                                             </label></td>
                                                     </tr></form>
-                                </table>                            </td>
+                                </table>
+
+                            </td>
                         </tr>
                     </table>
                     <p>&nbsp;</p>
@@ -95,8 +97,7 @@
                         </tr>
                     </table></td>
             </tr>
-        </table>
-        </td>
+        </table></td>
 </tr>
 </table>
 </body>

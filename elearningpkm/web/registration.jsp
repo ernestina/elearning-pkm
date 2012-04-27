@@ -25,7 +25,18 @@ a:active {
 	text-decoration: none;
 }
 -->
-    </style></head>
+    </style>
+            <script type = "text/javascript">
+            function disableDrop(){
+                if(form2.role.options[0].selected){
+                    form2.schoolbrowse.disabled = true;
+                }
+                else{
+                    form2.schoolbrowse.disabled = false;
+                }
+            }
+        </script>
+    </head>
     <body>
     <table width="1052" border="0" align="center" cellspacing="0" bordercolor="#CCCCCC">
           <tr>
@@ -89,7 +100,7 @@ a:active {
                       <td bgcolor="#80BFBF">Retype Password </td>
                       <td bgcolor="#80BFBF">:</td>
                       <td colspan="7" bgcolor="#80BFBF"><label for="label3"></label>
-                      <input name="password" type="text" size="20" maxlength="20" ></td>
+                      <input name="password2" type="text" size="20" maxlength="20" ></td>
                     </tr>
                     <tr>
                       <td bgcolor="#80BFBF">Role</td>
