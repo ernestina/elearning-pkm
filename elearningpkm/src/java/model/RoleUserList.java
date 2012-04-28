@@ -144,4 +144,15 @@ public class RoleUserList {
             }
         }
     }
+    
+    public List<UserRole> findUserRoleById(String kode){
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("UserRole.findByRoleId");
+            query.setParameter("userRole", "%"+kode+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 }

@@ -5,14 +5,17 @@
 package controller;
 
 import entity.User;
+import entity.UserRole;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
+import model.RoleUserList;
 import model.UserList;
 
 /**
@@ -39,33 +42,58 @@ public class ProsesRegisterServlet extends HttpServlet {
 
             UserList daftarUser = new UserList();
             User user = new User();
+            UserRole roleUser = new UserRole();
+            RoleUserList roleList = new RoleUserList();
+            List<UserRole> listRole = roleList.findUserRoleById(role);
+            if (listRole.isEmpty()) {
+                role = null;
+            } else {
+                role = listRole.get(0);
+
+            }
+            
 
             String jsp = "";
 
             if ("".equals(fname)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(lname)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
-            }
-             else if ("".equals(idnumber)) {
+            } else if ("".equals(idnumber)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(username)) {
                 JOptionPane.showMessageDialog(null, "Username tidak boleh kosong !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(password)) {
                 JOptionPane.showMessageDialog(null, "Password tidak boleh kosong !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(password2)) {
                 JOptionPane.showMessageDialog(null, "Konfirmasi Password tidak boleh kosong !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if (!password.equals(password2)) {
                 JOptionPane.showMessageDialog(null, "Input Password harus sama !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if (daftarUser.isUsernameExist(username)) {
                 JOptionPane.showMessageDialog(null, "Username sudah ada pada database !");
+                List<UserRole> userRole = roleList.getUserRole();
+                request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else {
                 user.setFName(fname);

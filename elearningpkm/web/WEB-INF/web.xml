@@ -20,6 +20,42 @@
         <servlet-name>ProsesRegister</servlet-name>
         <servlet-class>controller.ProsesRegisterServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManajemenCourseServlet</servlet-name>
+        <servlet-class>controller.ManajemenCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddCourseServlet</servlet-name>
+        <servlet-class>controller.AddCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditCourseServlet</servlet-name>
+        <servlet-class>controller.EditCourseServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManajemenGuruServlet</servlet-name>
+        <servlet-class>controller.ManajemenGuruServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddGuruServlet</servlet-name>
+        <servlet-class>controller.AddGuruServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditGuruServlet</servlet-name>
+        <servlet-class>controller.EditGuruServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManajemenKelasServlet</servlet-name>
+        <servlet-class>controller.ManajemenKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddKelasServlet</servlet-name>
+        <servlet-class>controller.AddKelasServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditKelasServlet</servlet-name>
+        <servlet-class>controller.EditKelasServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/login</url-pattern>
@@ -39,6 +75,42 @@
     <servlet-mapping>
         <servlet-name>ProsesRegister</servlet-name>
         <url-pattern>/prosesregister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManajemenCourseServlet</servlet-name>
+        <url-pattern>/manajemen-course</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddCourseServlet</servlet-name>
+        <url-pattern>/add-course</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditCourseServlet</servlet-name>
+        <url-pattern>/edit-course</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManajemenGuruServlet</servlet-name>
+        <url-pattern>/manajemen-guru</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddGuruServlet</servlet-name>
+        <url-pattern>/add-guru</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditGuruServlet</servlet-name>
+        <url-pattern>/edit-guru</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManajemenKelasServlet</servlet-name>
+        <url-pattern>/manajemen-kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddKelasServlet</servlet-name>
+        <url-pattern>/add-kelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditKelasServlet</servlet-name>
+        <url-pattern>/edit-kelas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
