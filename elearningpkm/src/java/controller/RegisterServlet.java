@@ -4,15 +4,17 @@
  */
 package controller;
 
+import entity.School;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.RoleUserList;
+import model.UserRoleList;
 import entity.UserRole;
 import java.util.List;
+import model.SchoolList;
 
 /**
  *
@@ -35,7 +37,12 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            RoleUserList roleList = new RoleUserList();
+            
+            SchoolList schoolList = new SchoolList();
+            List<School> school = schoolList.getSchool();
+            request.setAttribute("school", school);
+            
+            UserRoleList roleList = new UserRoleList();
             List<UserRole> userRole = roleList.getUserRole();
             request.setAttribute("userRole", userRole);
             request.getRequestDispatcher("/registration.jsp").forward(request, response);

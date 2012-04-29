@@ -99,5 +99,16 @@ public class SchoolList {
                 em.close();
             }
         }
-    }       
+    }
+ 
+    public List<School> findSchoolById(String kode){
+        EntityManager em = getEntityManager();
+        try {
+            Query query = em.createNamedQuery("School.findBySchoolId");
+            query.setParameter("school", "%"+kode+"%");
+            return query.getResultList();
+        } finally {
+            em.close();
+        }
+    }
 }

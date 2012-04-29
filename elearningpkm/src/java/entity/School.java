@@ -66,8 +66,6 @@ public class School implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date schoolCreated;
     @OneToMany(mappedBy = "schoolId")
-    private Collection<Class> classCollection;
-    @OneToMany(mappedBy = "schoolId")
     private Collection<User> userCollection;
 
     public School() {
@@ -152,15 +150,6 @@ public class School implements Serializable {
 
     public void setSchoolCreated(Date schoolCreated) {
         this.schoolCreated = schoolCreated;
-    }
-
-    @XmlTransient
-    public Collection<Class> getClassCollection() {
-        return classCollection;
-    }
-
-    public void setClassCollection(Collection<Class> classCollection) {
-        this.classCollection = classCollection;
     }
 
     @XmlTransient

@@ -19,9 +19,9 @@ import javax.persistence.Query;
  *
  * @author Accio
  */
-public class RoleUserList {
+public class UserRoleList {
     
-    public RoleUserList() {
+    public UserRoleList() {
         emf = Persistence.createEntityManagerFactory("elearningpkmPU");
     }
     private EntityManagerFactory emf = null;
@@ -142,17 +142,6 @@ public class RoleUserList {
             if (em != null) {
                 em.close();
             }
-        }
-    }
-    
-    public List<UserRole> findUserRoleById(String kode){
-        EntityManager em = getEntityManager();
-        try {
-            Query query = em.createNamedQuery("UserRole.findByRoleId");
-            query.setParameter("userRole", "%"+kode+"%");
-            return query.getResultList();
-        } finally {
-            em.close();
         }
     }
 }

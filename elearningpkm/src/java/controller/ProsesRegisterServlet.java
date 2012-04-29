@@ -4,6 +4,7 @@
  */
 package controller;
 
+import entity.School;
 import entity.User;
 import entity.UserRole;
 import java.io.IOException;
@@ -15,7 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
-import model.RoleUserList;
+import model.UserRoleList;
+import model.SchoolList;
 import model.UserList;
 
 /**
@@ -35,72 +37,102 @@ public class ProsesRegisterServlet extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String password2 = request.getParameter("password2");
-            String role = request.getParameter("role");
-            String schoolnameinput = request.getParameter("schoolnameinput");
+            String roleName = request.getParameter("role");
+            Integer roleId = Integer.parseInt(roleName);
+            String schoolname = request.getParameter("schoolname");
             String schoolemail = request.getParameter("schoolemail");
             String schoolbrowse = request.getParameter("schoolbrowse");
 
+            SchoolList daftarSchool = new SchoolList();
+            School school = new School();
+            /*List<School> listSchool = daftarSchool.findSchoolById(schoolname);
+            if (listSchool.isEmpty()) {
+            school = null;
+            } else {
+            school = listSchool.get(0);
+            
+            }*/
+
             UserList daftarUser = new UserList();
             User user = new User();
-            UserRole roleUser = new UserRole();
-            RoleUserList roleList = new RoleUserList();
-            List<UserRole> listRole = roleList.findUserRoleById(role);
-            if (listRole.isEmpty()) {
-                role = null;
-            } else {
-                role = listRole.get(0);
 
-            }
-            
+            //UserRole roleUser = new UserRole();
+            UserRoleList roleList = new UserRoleList();
+            UserRole userRole = roleList.findUserRole(roleId);
+            //List<UserRole> listRole = roleList.findUserRoleByName(roleName);
+
+
 
             String jsp = "";
 
             if ("".equals(fname)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(lname)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(idnumber)) {
                 JOptionPane.showMessageDialog(null, "Nama tidak boleh kosong !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(username)) {
                 JOptionPane.showMessageDialog(null, "Username tidak boleh kosong !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(password)) {
                 JOptionPane.showMessageDialog(null, "Password tidak boleh kosong !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if ("".equals(password2)) {
                 JOptionPane.showMessageDialog(null, "Konfirmasi Password tidak boleh kosong !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if (!password.equals(password2)) {
                 JOptionPane.showMessageDialog(null, "Input Password harus sama !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else if (daftarUser.isUsernameExist(username)) {
                 JOptionPane.showMessageDialog(null, "Username sudah ada pada database !");
-                List<UserRole> userRole = roleList.getUserRole();
-                request.setAttribute("userRole", userRole);
+                List<School> schoolList = daftarSchool.getSchool();
+                request.setAttribute("schoolList", schoolList);
+                //List<UserRole> userRole = roleList.getUserRole();
+                //request.setAttribute("userRole", userRole);
                 jsp = "/registration.jsp";
             } else {
+                school.setSchoolName(schoolname);
+                school.setSchoolEmail(schoolemail);
+                daftarSchool.rekamSchool(school);
+
                 user.setFName(fname);
                 user.setLName(lname);
                 user.setUsername(username);
                 user.setPassword(password);
                 user.setNipNis(idnumber);
+                user.setRoleId(userRole);
+                user.setSchoolName(schoolname);
                 daftarUser.rekamUser(user);
 
                 jsp = "home.jsp";

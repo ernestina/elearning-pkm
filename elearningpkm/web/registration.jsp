@@ -4,17 +4,22 @@
     Author     : Accio
 --%>
 
+<%@page import="entity.School"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
-<%@page import="model.RoleUserList"%>
+<%@page import="model.UserRoleList"%>
 <%@page import="entity.UserRole"%>
 <%@page import="javax.swing.JOptionPane"%>
 
 <% List<UserRole> userRole = (List<UserRole>) request.getAttribute("userRole");%>
 <% UserRole roleUser;%>
 <% Iterator<UserRole> iterator = userRole.iterator();%>
+
+<% List<School> school = (List<School>) request.getAttribute("school");%>
+<% School schoolIterator;%>
+<% Iterator<School> iterator2 = school.iterator();%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -115,7 +120,7 @@
                                             <td bgcolor="#80BFBF">Role</td>
                                             <td bgcolor="#80BFBF">:</td>
                                             <td colspan="7" bgcolor="#80BFBF"><label for="select"></label>
-                                                    <select name="role" size="1" id="select"><% while (iterator.hasNext()) {
+                                                    <select name="role" size="1" id="select" onchange = "disableDrop();"><% while (iterator.hasNext()) {
                                   roleUser = iterator.next();%><option value="<%=roleUser.getRoleId()%>"><%=roleUser.getRoleName()%></option><%}%></select>
                                             </td>
                                         </tr>
@@ -126,7 +131,7 @@
                                             <td colspan="2" bgcolor="#80BFBF">School Name </td>
                                             <td width="17" bgcolor="#80BFBF">:</td>
                                             <td colspan="4" bgcolor="#80BFBF"><label for="label4"></label>
-                                                <input name="schoolnameinput" type="text" id="label4" size="64" maxlength="64"></td>
+                                                <input name="schoolname" type="text" id="label4" size="64" maxlength="64"></td>
                                         </tr>
                                         <tr>
                                             <td bgcolor="#80BFBF">&nbsp;</td>
@@ -143,7 +148,8 @@
                                             <td bgcolor="#80BFBF">&nbsp;</td>
                                             <td colspan="4" bgcolor="#80BFBF"><label for="label5"></label>
                                                 <label for="label"></label>
-                                                <select name="schoolbrowse" id="label">
+                                                <select name="schoolbrowse" id="label"><% while (iterator2.hasNext()) {
+                                  schoolIterator = iterator2.next();%><option value="<%=schoolIterator.getSchoolId()%>"><%=schoolIterator.getSchoolName()%></option><%}%></select>
                                                 </select>                      </td>
                                         </tr>
                                         <tr>

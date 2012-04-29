@@ -5,7 +5,6 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -18,12 +17,10 @@ import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,6 +32,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
     @NamedQuery(name = "User.findById", query = "SELECT u FROM User u WHERE u.id = :id"),
+    @NamedQuery(name = "User.findBySchoolName", query = "SELECT u FROM User u WHERE u.schoolName = :schoolName"),
     @NamedQuery(name = "User.findByNipNis", query = "SELECT u FROM User u WHERE u.nipNis = :nipNis"),
     @NamedQuery(name = "User.findByFName", query = "SELECT u FROM User u WHERE u.fName = :fName"),
     @NamedQuery(name = "User.findByLName", query = "SELECT u FROM User u WHERE u.lName = :lName"),
@@ -59,6 +57,9 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "ID")
     private Integer id;
+    @Basic(optional = false)
+    @Column(name = "SCHOOL_NAME")
+    private String schoolName;
     @Column(name = "NIP_NIS")
     private String nipNis;
     @Column(name = "F_NAME")
@@ -101,12 +102,6 @@ public class User implements Serializable {
     private Boolean confirmed;
     @Column(name = "DELETED")
     private Boolean deleted;
-    @OneToMany(mappedBy = "id")
-    private Collection<CourseReg> courseRegCollection;
-    @OneToMany(mappedBy = "id")
-    private Collection<Course> courseCollection;
-    @OneToMany(mappedBy = "id")
-    private Collection<UploadAssignment> uploadAssignmentCollection;
     @JoinColumn(name = "SCHOOL_ID", referencedColumnName = "SCHOOL_ID")
     @ManyToOne
     private School schoolId;
@@ -121,8 +116,9 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public User(Integer id, Date created, Date lastLogin) {
+    public User(Integer id, String schoolName, Date created, Date lastLogin) {
         this.id = id;
+        this.schoolName = schoolName;
         this.created = created;
         this.lastLogin = lastLogin;
     }
@@ -133,6 +129,14 @@ public class User implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getSchoolName() {
+        return schoolName;
+    }
+
+    public void setSchoolName(String schoolName) {
+        this.schoolName = schoolName;
     }
 
     public String getNipNis() {
@@ -277,33 +281,6 @@ public class User implements Serializable {
 
     public void setDeleted(Boolean deleted) {
         this.deleted = deleted;
-    }
-
-    @XmlTransient
-    public Collection<CourseReg> getCourseRegCollection() {
-        return courseRegCollection;
-    }
-
-    public void setCourseRegCollection(Collection<CourseReg> courseRegCollection) {
-        this.courseRegCollection = courseRegCollection;
-    }
-
-    @XmlTransient
-    public Collection<Course> getCourseCollection() {
-        return courseCollection;
-    }
-
-    public void setCourseCollection(Collection<Course> courseCollection) {
-        this.courseCollection = courseCollection;
-    }
-
-    @XmlTransient
-    public Collection<UploadAssignment> getUploadAssignmentCollection() {
-        return uploadAssignmentCollection;
-    }
-
-    public void setUploadAssignmentCollection(Collection<UploadAssignment> uploadAssignmentCollection) {
-        this.uploadAssignmentCollection = uploadAssignmentCollection;
     }
 
     public School getSchoolId() {
