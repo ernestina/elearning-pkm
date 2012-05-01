@@ -31,6 +31,7 @@ a:active {
 }
 -->
         </style>
+		<%String logedUser = (String) session.getAttribute("username");%>
 </head>
     <body>
     <table width="1024" border="0" align="center" cellspacing="0" bordercolor="#CCCCCC">
@@ -39,8 +40,8 @@ a:active {
               <table width="1053" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                   <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home</a> &gt;&gt; <a href="admin_manajemen_guru.jsp">Manajemen Guru </a></div></th>
-                  <th width="71" bgcolor="#FFFFFF" scope="col"><div align="left" class="style15">Welcome,</div></th>
-                  <th width="133" bgcolor="#FFFFFF" scope="col"><span class="style16"></span></th>
+                  <th width="80" bgcolor="#FFFFFF" scope="col"><div align="left" class="style15"><% if (logedUser != null) {%><%="Welcome, " + logedUser%><%}%></div></th>
+                        <th width="10" bgcolor="#FFFFFF" scope="col"><span class="style16"></span></th>
                   <th width="40" bgcolor="#FFFFFF" scope="col"><span class="style15"><a href="index.jsp">(logout)</a></span></th>
                 </tr>
             </table></td>

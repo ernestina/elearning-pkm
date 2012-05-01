@@ -58,7 +58,7 @@ public class User implements Serializable {
     @Column(name = "ID")
     private Integer id;
     @Basic(optional = false)
-    @Column(name = "SCHOOL_NAME")
+    @Column(name = "SCHOOLNAME")
     private String schoolName;
     @Column(name = "NIP_NIS")
     private String nipNis;

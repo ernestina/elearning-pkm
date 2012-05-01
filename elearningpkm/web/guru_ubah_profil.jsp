@@ -37,7 +37,7 @@ a:active {
             <td height="124"><img src="logo2.png" width="1058" height="181">
               <table width="1053" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home</a> &gt;&gt; <a href="admin_ubah_profil.jsp">Ubah Profil </a></div></th>
+                  <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_guru.jsp">Home</a> &gt;&gt; <a href="guru_ubah_profil.jsp">Ubah Profil </a></div></th>
                  <th width="80" bgcolor="#FFFFFF" scope="col"><div align="left" class="style15"><% if (logedUser != null) {%><%="Welcome, " + logedUser%><%}%></div></th>
                         <th width="10" bgcolor="#FFFFFF" scope="col"><span class="style16"></span></th>
                   <th width="40" bgcolor="#FFFFFF" scope="col"><span class="style15"><a href="index.jsp">(logout)</a></span></th>
@@ -55,21 +55,10 @@ a:active {
                           <td width="206" bgcolor="#80BFBF"><strong>MyMenu</strong></td>
                         </tr>
                         <tr>
-                          <td><a href="admin_ubah_profil.jsp">Ubah Profil </a></td>
+                          <td><a href="guru_ubah_profil.jsp">Ubah Profil </a></td>
                         </tr>
                         <tr>
-                          <td><a href="admin_manajemen_guru.jsp">Manajemen Guru</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_siswa.jsp">Manajemen Siswa</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_kelas.jsp">Manajemen Kelas</a> </td>
-                        </tr>
-                        <tr>
-                          <td><label>
-                          </label>
-                          <a href="admin_manajemen_course.jsp">Manajemen Course</a> </td>
+                          <td><a href="admin_manajemen_course.jsp">Manajemen Course</a><a href="admin_manajemen_guru.jsp"></a></td>
                         </tr>
                       </table>
                                         </form>                    </td>

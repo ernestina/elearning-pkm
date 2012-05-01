@@ -40,7 +40,7 @@ a:active {
             <td width="1058" height="124"><img src="logo2.png" width="1059" height="176">
               <table width="1053" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <th width="900" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home</a> &gt;&gt; <a href="admin_manajemen_course.jsp">Manajemen Course </a></div></th>
+                  <th width="900" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_guru.jsp">Home</a> &gt;&gt; <a href="guru_manajemen_course.jsp">Manajemen Course </a></div></th>
                   <th width="100" bgcolor="#FFFFFF" scope="col"><div align="left" class="style15"><% if (logedUser != null) {%><%="Welcome, " + logedUser%><%}%></div></th>
                   <th width="9" bgcolor="#FFFFFF" scope="col"><span class="style16"></span></th>
                   <th width="44" bgcolor="#FFFFFF" scope="col"><span class="style15"><a href="index.jsp">(logout)</a></span></th>
@@ -58,21 +58,10 @@ a:active {
                           <td width="167" bgcolor="#80BFBF"><strong>MyMenu</strong></td>
                         </tr>
                         <tr>
-                          <td><a href="admin_ubah_profil.jsp">Ubah Profil </a></td>
+                          <td><a href="guru_ubah_profil.jsp">Ubah Profil </a></td>
                         </tr>
                         <tr>
-                          <td><a href="admin_manajemen_guru.jsp">Manajemen Guru</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_siswa.jsp">Manajemen Siswa</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_kelas.jsp">Manajemen Kelas</a> </td>
-                        </tr>
-                        <tr>
-                          <td><label>
-                          </label>
-                          <a href="admin_manajemen_course.jsp">Manajemen Course</a> </td>
+                          <td><a href="guru_manajemen_course.jsp">Manajemen Course</a><a href="admin_manajemen_guru.jsp"></a></td>
                         </tr>
                       </table>
                                         </form>                    </td>
@@ -97,7 +86,7 @@ a:active {
                         <td><form action="" method="post" enctype="multipart/form-data" name="form2">
                           <table width="852" border="1" cellpadding="0" cellspacing="0">
                             <tr>
-                              <td colspan="9" scope="col">&nbsp;</td>
+                              <td colspan="8" scope="col">&nbsp;</td>
                             </tr>
                             <tr>
                               <td width="30" scope="col"><div align="center" class="style16"><strong>No</strong></div></td>
@@ -105,10 +94,9 @@ a:active {
                               <td width="139" scope="col"><div align="center" class="style16">Guru</div></td>
                               <td width="112" scope="col"><div align="center" class="style16">Kelas</div></td>
                               <td width="95" scope="col"><div align="center"><span class="style16">Tanggal Mulai </span></div></td>
-                              <td width="120" scope="col"><div align="center"><span class="style16">Tanggal selesai </span></div></td>
-                              <td width="99" scope="col"><div align="center"><span class="style16">Tanggal buat</span></div></td>
-                              <td width="37" scope="col">&nbsp;</td>
-                              <td width="37" scope="col">&nbsp;</td>
+                              <td width="128" scope="col"><div align="center"><span class="style16">Tanggal selesai </span></div></td>
+                              <td width="122" scope="col"><div align="center"><span class="style16">Tanggal buat</span></div></td>
+                              <td width="45" scope="col">&nbsp;</td>
                             </tr>
                             <tr>
                               <td scope="col"><span class="style16"></span></td>
@@ -118,8 +106,7 @@ a:active {
                               <td scope="col"><div align="center" class="style16"></div></td>
                               <td scope="col"><div align="center" class="style16"><em><a href="admin_manajemen_kelas_edit.jsp"></a></em></div></td>
                               <td scope="col">&nbsp;</td>
-                              <td scope="col"><div align="center" class="style23"><a href="admin_manajemen_course.jsp">Delete</a></div></td>
-                              <td scope="col"><div align="center" class="style23"><a href="admin_manajemen_course_edit.jsp">Edit</a></div></td>
+                              <td scope="col"><div align="center" class="style23"><a href="admin_manajemen_course_edit.jsp">detil</a></div></td>
                             </tr>
                           </table>
                                                 </form>                        </td>
@@ -134,7 +121,7 @@ a:active {
                       <th width="69" scope="col"><span class="style15">Previous</span></th>
                       <th width="39" scope="col"><span class="style15">Next</span></th>
                       <th width="42" scope="col"><span class="style15">Last</span></th>
-                      <th width="644" scope="col"><div align="right"><span class="style15"><a href="admin_manajemen_course_add.jsp">Add</a></span></div></th>
+                      <th width="644" scope="col"><div align="right"><span class="style15"><a href="admin_manajemen_course_add.jsp"></a></span></div></th>
                     </tr>
                   </table>
                 <p>&nbsp;</p></td>
