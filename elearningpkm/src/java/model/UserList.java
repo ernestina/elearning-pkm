@@ -55,13 +55,13 @@ public class UserList {
         }
     }
     
-    public boolean check(String username, String password) {
+    public boolean check(String username) {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT count(a) FROM User AS a WHERE a.username=:uname AND a.password=:pass");
+            Query q = em.createQuery("SELECT count(a) FROM User AS a WHERE a.username=:uname");
             q.setParameter("uname", username);
-            q.setParameter("pass", password);
+            //q.setParameter("pass", password);
             int jumlahUser = ((Long) q.getSingleResult()).intValue();
             if (jumlahUser == 1) {
                 result = true;
@@ -118,15 +118,15 @@ public class UserList {
         }
     }
     
-    public User getUser(String username, String password) {
+    public User getUser(String username) {
         User user = null;
         EntityManager em = getEntityManager();
         try {
-            boolean hasilCheck = this.check(username, password);
+            boolean hasilCheck = this.check(username);
             if (hasilCheck) {
-                Query q = em.createQuery("SELECT a FROM User AS a WHERE a.username=:uname AND a.password=:pass");
+                Query q = em.createQuery("SELECT a FROM User AS a WHERE a.username=:uname");
                 q.setParameter("uname", username);
-                q.setParameter("pass", password);
+                //q.setParameter("pass", password);
                 user = (User) q.getSingleResult();
             }
         } finally {

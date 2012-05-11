@@ -14,9 +14,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Accio
+ * @author Maccio
  */
-public class HomeServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -32,27 +32,14 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        Integer role = (Integer) session.getAttribute("role");
-        if (role == 1) {
-            request.getRequestDispatcher("/home_admin.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("/error.jsp").forward(request, response);
-        }
-
-
-        try {
-            /*
-             * TODO output your page here out.println("<html>");
-             * out.println("<head>"); out.println("<title>Servlet
-             * HomeServlet</title>"); out.println("</head>");
-             * out.println("<body>"); out.println("<h1>Servlet HomeServlet at "
-             * + request.getContextPath () + "</h1>"); out.println("</body>");
-             * out.println("</html>");
-             */
-        } finally {
-            out.close();
-        }
+        
+            HttpSession session = request.getSession();
+            if (session.getAttribute("username") != null) {
+                session.invalidate();
+                //request.getRequestDispatcher("main.jsp").forward(request, response);
+                response.sendRedirect("main");
+            }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

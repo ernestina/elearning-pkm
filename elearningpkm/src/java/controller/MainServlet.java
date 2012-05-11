@@ -29,7 +29,7 @@ public class MainServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
-        request.getRequestDispatcher("/main.jsp").forward(request, response);
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
         try {
             /* TODO output your page here
             out.println("<html>");

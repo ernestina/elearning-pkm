@@ -4,8 +4,10 @@
     Author     : Accio
 --%>
 
+<%@page import="entity.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<% User user = (User) request.getAttribute("user_edit");%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -37,10 +39,10 @@ a:active {
             <td height="124"><img src="logo2.png" width="1058" height="181">
               <table width="1053" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                  <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home</a> &gt;&gt; <a href="admin_ubah_profil.jsp">Ubah Profil </a></div></th>
+                  <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home">Home</a> &gt;&gt; <a href="admin_ubah_profil.jsp">Ubah Profil </a></div></th>
                  <th width="80" bgcolor="#FFFFFF" scope="col"><div align="left" class="style15"><% if (logedUser != null) {%><%="Welcome, " + logedUser%><%}%></div></th>
                         <th width="10" bgcolor="#FFFFFF" scope="col"><span class="style16"></span></th>
-                  <th width="40" bgcolor="#FFFFFF" scope="col"><span class="style15"><a href="index.jsp">(logout)</a></span></th>
+                  <th width="40" bgcolor="#FFFFFF" scope="col"><span class="style15"><a href="logout">(logout)</a></span></th>
                 </tr>
             </table></td>
           </tr>
@@ -55,22 +57,22 @@ a:active {
                           <td width="206" bgcolor="#80BFBF"><strong>MyMenu</strong></td>
                         </tr>
                         <tr>
-                          <td><a href="admin_ubah_profil.jsp">Ubah Profil </a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_guru.jsp">Manajemen Guru</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_siswa.jsp">Manajemen Siswa</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_kelas.jsp">Manajemen Kelas</a> </td>
-                        </tr>
-                        <tr>
-                          <td><label>
-                          </label>
-                          <a href="admin_manajemen_course.jsp">Manajemen Course</a> </td>
-                        </tr>
+                          <td><a href="edit-profil-admin">Ubah Profil</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="manajemen-guru">Manajemen Guru</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="manajemen-siswa">Manajemen Siswa</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="manajemen-kelas">Manajemen Kelas</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>
+                                                </label>
+                                                <a href="manajemen-course">Manajemen Course</a> </td>
+                                        </tr>
                       </table>
                                         </form>                    </td>
                   </tr>
@@ -91,14 +93,14 @@ a:active {
                         <th width="613" bgcolor="#80BFBF" scope="col"><div align="left">Data Pribadi </div></th>
                       </tr>
                       <tr>
-                        <td><form action="" method="post" enctype="multipart/form-data" name="form2">
+                        <td><form action="proses-edit-profil-admin" method="post" enctype="multipart/form-data" name="form-edit-admin">
                           <table width="811" border="0">
-                            <tr>
+                            <tr><p><input type="hidden" name="id_edit_user" value="<%=user.getId()%>"></p>
                               <td width="135" scope="col"><div align="left"><span class="style16">Nomor identitas pegawai </span></div></td>
                               <td width="9" scope="col"><div align="left"><span class="style16">:</span></div></td>
                               <td width="653" scope="col"><span class="style16">
                                 <label for="textfield"></label>
-                                <input name="textfield" type="text" id="textfield" size="18" maxlength="18">
+                                <input name="nipnis" type="text" id="textfield" size="18" maxlength="18" value="<%=user.getNipNis()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -106,7 +108,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label"></label>
-                                <input name="textfield2" type="text" id="label" size="64" maxlength="64">
+                                <input name="fname" type="text" id="label" size="64" maxlength="64" value="<%=user.getFName()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -114,7 +116,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label2"></label>
-                                <input name="textfield3" type="text" id="label2" size="64" maxlength="64">
+                                <input name="lname" type="text" id="label2" size="64" maxlength="64" value="<%=user.getLName()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -122,7 +124,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label3"></label>
-                                <input name="textfield4" type="text" id="label3" size="64" maxlength="64">
+                                <input name="email" type="text" id="label3" size="64" maxlength="64" value="<%=user.getEmail()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -130,7 +132,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label11"></label>
-                                <input name="textfield12" type="text" id="label11" size="64" maxlength="64">
+                                <input name="address" type="text" id="label11" size="64" maxlength="64" value="<%=user.getAddress()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -138,7 +140,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label4"></label>
-                                <input name="textfield5" type="text" id="label4" size="64" maxlength="64">
+                                <input name="city" type="text" id="label4" size="64" maxlength="64" value="<%=user.getCity()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -146,7 +148,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label5"></label>
-                                <input name="textfield6" type="text" id="label5" size="64" maxlength="64">
+                                <input name="province" type="text" id="label5" size="64" maxlength="64" value="<%=user.getProvince()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -154,15 +156,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label6"></label>
-                                <input name="textfield7" type="text" id="label6" size="10" maxlength="10">
-                              </span></td>
-                            </tr>
-                            <tr>
-                              <td><span class="style16">Tanggal lahir </span></td>
-                              <td><span class="style16">:</span></td>
-                              <td><span class="style16">
-                                <label for="label7"></label>
-                                <input name="textfield8" type="text" id="label7" size="8" maxlength="8">
+                                <input name="postcode" type="text" id="label6" size="10" maxlength="10" value="<%=user.getPostcode()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -170,7 +164,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label8"></label>
-                                <input name="textfield9" type="text" id="label8" size="32" maxlength="32">
+                                <input name="religion" type="text" id="label8" size="32" maxlength="32" value="<%=user.getReligion()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -178,7 +172,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label9"></label>
-                                <input name="textfield10" type="text" id="label9" size="20">
+                                <input name="textfield10" type="text" id="label9" size="20" value="<%=user.getPhone()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -202,33 +196,13 @@ a:active {
                               <td><label for="file"></label>
                               <input type="file" name="file" id="file"></td>
                             </tr>
-                            <tr>
-                              <td>&nbsp;</td>
-                              <td>&nbsp;</td>
-                              <td><label for="Submit"></label>
-                                <div align="right">
-                                  <input type="submit" name="Submit" value="Submit" id="Submit">
-                              </div></td>
-                            </tr>
-                          </table>
-                                                </form>                        </td>
-                      </tr>
-                    </table></td>
-                  </tr>
-                  <tr>
-                    <td><table width="550" border="1" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <th bgcolor="#80BFBF" scope="col"><div align="left">Username dan Password </div></th>
-                      </tr>
-                      <tr>
-                        <td><form name="form3" method="post" action="">
                           <table width="809" border="0">
                             <tr>
                               <td width="137" scope="col"><div align="left" class="style16">Username</div></td>
                               <td width="9" scope="col"><div align="left"><span class="style16"></span></div></td>
                               <td width="649" scope="col"><div align="left" class="style16">
                                 <label for="label12"></label>
-                                <input name="textfield13" type="text" id="label12" size="64" maxlength="64">
+                                <input name="uname" type="text" id="label12" size="64" maxlength="64" value="<%=user.getUsername()%>">
                               </div></td>
                             </tr>
                             <tr>
@@ -236,7 +210,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label15"></label>
-                                <input name="textfield16" type="text" id="label15" size="20" maxlength="20">
+                                <input name="password" type="password" id="label15" size="20" maxlength="20" value="<%=user.getPassword()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -260,7 +234,7 @@ a:active {
                               <td>&nbsp;</td>
                               <td><label for="label16"></label>
                                 <div align="right">
-                                  <input type="submit" name="Submit2" value="Submit" id="label16">
+                                  <input type="submit" name="Submit" value="Submit" id="label16">
                               </div></td>
                             </tr>
                           </table>

@@ -4,6 +4,7 @@
  */
 package controller;
 
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,12 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.UserList;
 
 /**
  *
- * @author Accio
+ * @author Maccio
  */
-public class HomeServlet extends HttpServlet {
+public class AdminUbahProfilServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -33,24 +35,30 @@ public class HomeServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
         Integer role = (Integer) session.getAttribute("role");
-        if (role == 1) {
-            request.getRequestDispatcher("/home_admin.jsp").forward(request, response);
+        if (role!=null && role == 1) {
+            User user = new User();
+            UserList userList = new UserList();
+            user = userList.getUser(username);
+            request.setAttribute("user_edit", user);
+            request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
         } else {
-            request.getRequestDispatcher("/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         }
-
-
         try {
             /*
-             * TODO output your page here out.println("<html>");
-             * out.println("<head>"); out.println("<title>Servlet
-             * HomeServlet</title>"); out.println("</head>");
-             * out.println("<body>"); out.println("<h1>Servlet HomeServlet at "
-             * + request.getContextPath () + "</h1>"); out.println("</body>");
-             * out.println("</html>");
+             * TODO output your page here. You may use following sample code.
              */
-        } finally {
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet AdminUbahProfilServlet</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet AdminUbahProfilServlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {            
             out.close();
         }
     }

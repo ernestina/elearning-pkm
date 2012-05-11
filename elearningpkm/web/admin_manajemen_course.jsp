@@ -58,22 +58,22 @@ a:active {
                           <td width="167" bgcolor="#80BFBF"><strong>MyMenu</strong></td>
                         </tr>
                         <tr>
-                          <td><a href="admin_ubah_profil.jsp">Ubah Profil </a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_guru.jsp">Manajemen Guru</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_siswa.jsp">Manajemen Siswa</a></td>
-                        </tr>
-                        <tr>
-                          <td><a href="admin_manajemen_kelas.jsp">Manajemen Kelas</a> </td>
-                        </tr>
-                        <tr>
-                          <td><label>
-                          </label>
-                          <a href="admin_manajemen_course.jsp">Manajemen Course</a> </td>
-                        </tr>
+                          <td><a href="edit-profil-admin">Ubah Profil</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="manajemen-guru">Manajemen Guru</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="manajemen-siswa">Manajemen Siswa</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="manajemen-kelas">Manajemen Kelas</a> </td>
+                                        </tr>
+                                        <tr>
+                                            <td><label>
+                                                </label>
+                                                <a href="manajemen-course">Manajemen Course</a> </td>
+                                        </tr>
                       </table>
                                         </form>                    </td>
                   </tr>

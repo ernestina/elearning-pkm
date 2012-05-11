@@ -4,6 +4,7 @@
  */
 package controller;
 
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,12 +12,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.UserList;
 
 /**
  *
- * @author Accio
+ * @author Maccio
  */
-public class HomeServlet extends HttpServlet {
+public class ProsesUbahProfilAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP
@@ -32,25 +34,33 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        Integer role = (Integer) session.getAttribute("role");
-        if (role == 1) {
-            request.getRequestDispatcher("/home_admin.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("/error.jsp").forward(request, response);
-        }
-
-
         try {
-            /*
-             * TODO output your page here out.println("<html>");
-             * out.println("<head>"); out.println("<title>Servlet
-             * HomeServlet</title>"); out.println("</head>");
-             * out.println("<body>"); out.println("<h1>Servlet HomeServlet at "
-             * + request.getContextPath () + "</h1>"); out.println("</body>");
-             * out.println("</html>");
-             */
-        } finally {
+            HttpSession session = request.getSession();
+        String username = (String) session.getAttribute("username");
+        Integer role = (Integer) session.getAttribute("role");
+        if (role!=null && role == 1) {
+            String fname = request.getParameter("fname");
+            String lname = request.getParameter("lname");
+            String email = request.getParameter("email");
+            String address = request.getParameter("address");
+            String city = request.getParameter("city");
+            String province = request.getParameter("province");
+            String postcode = request.getParameter("postcode");
+            String religion = request.getParameter("religion");
+            String uname = request.getParameter("uname");
+            String password = request.getParameter("password");
+            String iduser = request.getParameter("id_edit_user");
+            
+            Integer inteiduser = Integer.parseInt(iduser);
+            UserList listUser = new UserList();
+            User user = listUser.findUser(inteiduser);
+            
+            user.setFName(fname);
+            user.setLName(lname);
+            listUser.edit(user);
+            request.getRequestDispatcher("/home.jsp").forward(request, response);
+        }
+        } finally {            
             out.close();
         }
     }
