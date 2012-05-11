@@ -64,18 +64,20 @@
   </script>
 <table width="1024" height="484" border="0" align="center">
   <tr>
-    <th height="425" bgcolor="#80BFBF" scope="col"><p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p>
-    <p>&nbsp;</p></th>
+    <th height="425" bgcolor="#80BFBF" scope="col"><p>
+      <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="483" height="360">
+        <param name="movie" value="video/elearning.swf" />
+        <param name="quality" value="high" />
+        <embed src="video/elearning.swf" width="483" height="360" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+      </object>
+    </p>    </th>
   </tr>
   <tr>
-    <th scope="col"><p>&nbsp;</p>
-      <p>Tim Pengembang :<br />
+    <th scope="col"><p>Tim Pengembang :<br />
         Novan Andre Valen <br>
         Ernestina Rahhmanasari <br />
         Slamet Darmawan <br />
-      </p></th>
+      </p>    </th>
   </tr>
 </table>
 <p>&nbsp;</p>

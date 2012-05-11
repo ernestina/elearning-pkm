@@ -4,7 +4,7 @@
  */
 package model;
 
-import entity.User;
+import entity2.User;
 import model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -55,13 +55,14 @@ public class UserList {
         }
     }
     
-    public boolean check(String username) {
+    
+   public boolean check(String username, String password) {
         boolean result = false;
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT count(a) FROM User AS a WHERE a.username=:uname");
+            Query q = em.createQuery("SELECT count(a) FROM User AS a WHERE a.username=:uname AND a.password=:pass");
             q.setParameter("uname", username);
-            //q.setParameter("pass", password);
+            q.setParameter("pass", password);
             int jumlahUser = ((Long) q.getSingleResult()).intValue();
             if (jumlahUser == 1) {
                 result = true;
@@ -118,15 +119,15 @@ public class UserList {
         }
     }
     
-    public User getUser(String username) {
+   public User getUser(String username, String password) {
         User user = null;
         EntityManager em = getEntityManager();
         try {
-            boolean hasilCheck = this.check(username);
+            boolean hasilCheck = this.check(username, password);
             if (hasilCheck) {
-                Query q = em.createQuery("SELECT a FROM User AS a WHERE a.username=:uname");
+                Query q = em.createQuery("SELECT a FROM User AS a WHERE a.username=:uname AND a.password=:pass");
                 q.setParameter("uname", username);
-                //q.setParameter("pass", password);
+                q.setParameter("pass", password);
                 user = (User) q.getSingleResult();
             }
         } finally {

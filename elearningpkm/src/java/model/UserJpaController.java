@@ -4,7 +4,7 @@
  */
 package model;
 
-import entity.User;
+import entity2.User;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,8 +13,8 @@ import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import entity.School;
-import entity.UserRole;
+import entity2.School;
+import entity2.UserRole;
 import model.exceptions.NonexistentEntityException;
 import model.exceptions.PreexistingEntityException;
 

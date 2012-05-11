@@ -37,8 +37,12 @@ public class HomeServlet extends HttpServlet {
             String username = (String) session.getAttribute("username");
             Integer role = (Integer) session.getAttribute("role");
             Integer id = (Integer) session.getAttribute("id");
-            if (role != null && role == 1) {
+            if (role != null && role == 2) {
                 request.getRequestDispatcher("/home_admin.jsp").forward(request, response);
+            } else if (role != null && role == 3) {
+                request.getRequestDispatcher("/home_guru.jsp").forward(request, response);
+            } else if (role != null && role == 4) {
+                request.getRequestDispatcher("/home_siswa.jsp").forward(request, response);
             } else if (role == null) {
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             }

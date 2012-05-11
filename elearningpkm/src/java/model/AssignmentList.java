@@ -4,7 +4,7 @@
  */
 package model;
 
-import entity.Assignment;
+import entity2.Assignment;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;

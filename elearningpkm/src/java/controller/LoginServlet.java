@@ -4,7 +4,7 @@
  */
 package controller;
 
-import entity.User;
+import entity2.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -37,24 +37,25 @@ public class LoginServlet extends HttpServlet {
 
             UserList usr = new UserList();
             User user = new User();
-            user = usr.getUser(username);
+            user = usr.getUser(username,password);
 
             if (username.equals("") || password.equals("")) {
                 //request.setAttribute("error", "Username/Password tidak boleh kosong!");
                 //request.getRequestDispatcher("/index2.jsp").forward(request, response);
                 out.println("Username dan password tidak boleh kosong!");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
-            } else if (usr.check(username) == false) {
+                request.getRequestDispatcher("index.jsp").include(request, response);
+            } else if (usr.check(username,password) == false) {
                 //request.setAttribute("error2", "Username/Password tidak terdaftar");
                 //request.getRequestDispatcher("/index2.jsp").forward(request, response);
                 out.println("Username dan password tidak terdaftar!");
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("index.jsp").include(request, response);
             } else {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("username", username);
                 session.setAttribute("role", user.getRoleId().getRoleId());
                 session.setAttribute("id", user.getId());
-                response.sendRedirect("home");
+                //response.sendRedirect("/home"); om kok kl pake yang dibawah baru mau ya???
+                request.getRequestDispatcher("/home").forward(request, response);
 
             }
         

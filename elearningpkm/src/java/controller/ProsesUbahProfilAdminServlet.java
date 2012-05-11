@@ -4,7 +4,7 @@
  */
 package controller;
 
-import entity.User;
+import entity2.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;

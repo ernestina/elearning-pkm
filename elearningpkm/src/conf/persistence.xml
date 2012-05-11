@@ -2,21 +2,21 @@
 <persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
   <persistence-unit name="elearningpkmPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>entity.UserRole</class>
-    <class>entity.School</class>
-    <class>entity.User</class>
-    <class>entity.Material</class>
-    <class>entity.Class</class>
-    <class>entity.TimeLearning</class>
-    <class>entity.CourseReg</class>
-    <class>entity.UploadAssignment</class>
-    <class>entity.Information</class>
-    <class>entity.Admin</class>
-    <class>entity.News</class>
-    <class>entity.Comment</class>
-    <class>entity.Assignment</class>
-    <class>entity.Course</class>
-    <class>entity.ClassCategory</class>
+    <class>entity2.Course</class>
+    <class>entity2.Material</class>
+    <class>entity2.School</class>
+    <class>entity2.UploadAssignment</class>
+    <class>entity2.User</class>
+    <class>entity2.UserRole</class>
+    <class>entity2.ClassCategory</class>
+    <class>entity2.Information</class>
+    <class>entity2.News</class>
+    <class>entity2.Assignment</class>
+    <class>entity2.Comment</class>
+    <class>entity2.Class</class>
+    <class>entity2.Admin</class>
+    <class>entity2.TimeLearning</class>
+    <class>entity2.CourseReg</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/elearning"/>

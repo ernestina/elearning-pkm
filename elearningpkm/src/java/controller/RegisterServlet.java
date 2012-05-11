@@ -4,7 +4,7 @@
  */
 package controller;
 
-import entity.School;
+import entity2.School;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.UserRoleList;
-import entity.UserRole;
+import entity2.UserRole;
 import java.util.List;
 import model.SchoolList;
 
