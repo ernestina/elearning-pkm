@@ -32,24 +32,16 @@ public class HomeServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        HttpSession session = request.getSession();
-        Integer role = (Integer) session.getAttribute("role");
-        if (role == 1) {
-            request.getRequestDispatcher("/home_admin.jsp").forward(request, response);
-        } else {
-            request.getRequestDispatcher("/error.jsp").forward(request, response);
-        }
-
-
         try {
-            /*
-             * TODO output your page here out.println("<html>");
-             * out.println("<head>"); out.println("<title>Servlet
-             * HomeServlet</title>"); out.println("</head>");
-             * out.println("<body>"); out.println("<h1>Servlet HomeServlet at "
-             * + request.getContextPath () + "</h1>"); out.println("</body>");
-             * out.println("</html>");
-             */
+            HttpSession session = request.getSession();
+            String username = (String) session.getAttribute("username");
+            Integer role = (Integer) session.getAttribute("role");
+            Integer id = (Integer) session.getAttribute("id");
+            if (role != null && role == 1) {
+                request.getRequestDispatcher("/home_admin.jsp").forward(request, response);
+            } else if (role == null) {
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
         } finally {
             out.close();
         }

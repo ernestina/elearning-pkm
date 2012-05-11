@@ -42,7 +42,7 @@
                             <th width="803" bgcolor="#FFFFFF" scope="col"><div align="left"><a href="home_admin.jsp">Home</a> &gt;&gt; <a href="admin_manajemen_guru.jsp">Manajemen Guru </a></div></th>
                         <th width="80" bgcolor="#FFFFFF" scope="col"><div align="left" class="style15"><% if (logedUser != null) {%><%="Welcome, " + logedUser%><%}%></div></th>
                         <th width="10" bgcolor="#FFFFFF" scope="col"><span class="style16"></span></th>
-                        <th width="40" bgcolor="#FFFFFF" scope="col"><span class="style15"><a href="index.jsp">(logout)</a></span></th>
+                        <th width="40" bgcolor="#FFFFFF" scope="col"><span class="style15"><a href="logout">(logout)</a></span></th>
             </tr>
         </table></td>
 </tr>
@@ -121,7 +121,7 @@
                                             <td scope="col"><span class="style27"></span></td>
                                             <td scope="col">&nbsp;</td>
                                             <td scope="col"><span class="style28"></span></td>
-                                            <td scope="col"><div align="center"><span class="style15"><a href="admin_manajemen_guru_edit.jsp">edit</a></span></div></td>
+                                            <td scope="col"><div align="center"><span class="style15"><a href="edit-guru">edit</a></span></div></td>
                                         </tr>
                                     </table>
                                 </form>                        </td>
@@ -136,7 +136,7 @@
                 <th width="68" scope="col"><span class="style15">Previous</span></th>
                 <th width="36" scope="col"><span class="style15">Next</span></th>
                 <th width="32" scope="col"><span class="style15">Last</span></th>
-                <th width="658" align="right" scope="col"><span class="style15"><a href="admin_manajemen_guru_add.jsp">Add</a></span></th>
+                <th width="658" align="right" scope="col"><span class="style15"><a href="add-guru">Add</a></span></th>
             </tr>
         </table>
         <p>&nbsp;</p></td>

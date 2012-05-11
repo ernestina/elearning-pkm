@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -28,18 +29,17 @@ public class AddGuruServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        request.getRequestDispatcher("/admin_manajemen_guru_add.jsp").forward(request, response);
+        //request.getRequestDispatcher("/admin_manajemen_guru_add.jsp").forward(request, response);
         try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AddGuruServlet</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AddGuruServlet at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
+            HttpSession session = request.getSession();
+            String username = (String) session.getAttribute("username");
+            Integer role = (Integer) session.getAttribute("role");
+            Integer id = (Integer) session.getAttribute("id");
+            if (role != null && role == 1) {
+                request.getRequestDispatcher("/admin_manajemen_guru_add.jsp").forward(request, response);
+            } else if (role == null) {
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+            }
         } finally {            
             out.close();
         }

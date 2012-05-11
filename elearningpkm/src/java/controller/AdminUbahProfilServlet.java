@@ -37,29 +37,15 @@ public class AdminUbahProfilServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
         Integer role = (Integer) session.getAttribute("role");
+        Integer id = (Integer) session.getAttribute("id");
         if (role!=null && role == 1) {
             User user = new User();
             UserList userList = new UserList();
-            user = userList.getUser(username);
+            user = userList.findUser(id);
             request.setAttribute("user_edit", user);
             request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
-        } else {
+        } else if(role==null && username==null) {
             request.getRequestDispatcher("/index.jsp").forward(request, response);
-        }
-        try {
-            /*
-             * TODO output your page here. You may use following sample code.
-             */
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet AdminUbahProfilServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet AdminUbahProfilServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {            
-            out.close();
         }
     }
 

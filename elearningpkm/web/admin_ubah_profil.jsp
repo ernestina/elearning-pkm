@@ -93,7 +93,7 @@ a:active {
                         <th width="613" bgcolor="#80BFBF" scope="col"><div align="left">Data Pribadi </div></th>
                       </tr>
                       <tr>
-                        <td><form action="proses-edit-profil-admin" method="post" enctype="multipart/form-data" name="form-edit-admin">
+                        <td><form action="proses-edit-profil-admin" method="post" name="form-edit-admin">
                           <table width="811" border="0">
                             <tr><p><input type="hidden" name="id_edit_user" value="<%=user.getId()%>"></p>
                               <td width="135" scope="col"><div align="left"><span class="style16">Nomor identitas pegawai </span></div></td>
@@ -172,7 +172,7 @@ a:active {
                               <td><span class="style16">:</span></td>
                               <td><span class="style16">
                                 <label for="label9"></label>
-                                <input name="textfield10" type="text" id="label9" size="20" value="<%=user.getPhone()%>">
+                                <input name="phone" type="text" id="label9" size="20" value="<%=user.getPhone()%>">
                               </span></td>
                             </tr>
                             <tr>
@@ -218,7 +218,7 @@ a:active {
                               <td><div align="left"><span class="style16"></span></div></td>
                               <td><div align="left"><span class="style16"></span>
                                 <label for="label13"></label>
-                                <input name="textfield14" type="password" id="label13" size="20" maxlength="20">
+                                <input name="newpassword" type="password" id="label13" size="20" maxlength="20">
                               </div></td>
                             </tr>
                             <tr>
@@ -226,7 +226,7 @@ a:active {
                               <td><div align="left"><span class="style16"></span></div></td>
                               <td><div align="left"><span class="style16"></span>
                                       <label for="label14"></label>
-                                      <input name="textfield15" type="password" id="label14" size="20" maxlength="20">
+                                      <input name="connewpass" type="password" id="label14" size="20" maxlength="20">
                               </div></td>
                             </tr>
                             <tr>

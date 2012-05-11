@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import model.UserList;
 
 /**
@@ -36,31 +37,83 @@ public class ProsesUbahProfilAdminServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         try {
             HttpSession session = request.getSession();
-        String username = (String) session.getAttribute("username");
-        Integer role = (Integer) session.getAttribute("role");
-        if (role!=null && role == 1) {
-            String fname = request.getParameter("fname");
-            String lname = request.getParameter("lname");
-            String email = request.getParameter("email");
-            String address = request.getParameter("address");
-            String city = request.getParameter("city");
-            String province = request.getParameter("province");
-            String postcode = request.getParameter("postcode");
-            String religion = request.getParameter("religion");
-            String uname = request.getParameter("uname");
-            String password = request.getParameter("password");
-            String iduser = request.getParameter("id_edit_user");
-            
-            Integer inteiduser = Integer.parseInt(iduser);
-            UserList listUser = new UserList();
-            User user = listUser.findUser(inteiduser);
-            
-            user.setFName(fname);
-            user.setLName(lname);
-            listUser.edit(user);
-            request.getRequestDispatcher("/home.jsp").forward(request, response);
-        }
-        } finally {            
+            String username = (String) session.getAttribute("username");
+            Integer role = (Integer) session.getAttribute("role");
+            Integer id = (Integer) session.getAttribute("id");
+            if (role != null && role == 1) {
+                String fname = request.getParameter("fname");
+                String lname = request.getParameter("lname");
+                String email = request.getParameter("email");
+                String address = request.getParameter("address");
+                String city = request.getParameter("city");
+                String province = request.getParameter("province");
+                String postcode = request.getParameter("postcode");
+                String religion = request.getParameter("religion");
+                String uname = request.getParameter("uname");
+                String password = request.getParameter("password");
+                String newpassword = request.getParameter("newpassword");
+                String connewpass = request.getParameter("connewpass");
+
+                UserList userList = new UserList();
+                User user = userList.findUser(id);
+                if (fname.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Nama harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (lname.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Nama harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (email.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Email harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (address.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Alamat harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (city.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Kota harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (province.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Provinsi harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (religion.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Agama harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (postcode.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Kode Pos harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (uname.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Username harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (newpassword.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Password harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (connewpass.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Konfirmasi Password harus diisi !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (!newpassword.equals(connewpass)) {
+                    JOptionPane.showMessageDialog(null, "Input password harus sama !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (!password.equals(newpassword)) {
+                    JOptionPane.showMessageDialog(null, "Input password baru masih sama !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else if (userList.isUsernameExist(uname)) {
+                    JOptionPane.showMessageDialog(null, "Username sudah terdaftar !");
+                    request.getRequestDispatcher("/admin_ubah_profil.jsp").forward(request, response);
+                } else {
+                    user.setFName(fname);
+                    user.setLName(lname);
+                    user.setAddress(address);
+                    user.setEmail(email);
+                    user.setReligion(religion);
+                    user.setCity(city);
+                    user.setProvince(province);
+                    user.setPostcode(postcode);
+                    user.setPassword(password);
+                    user.setUsername(uname);
+                    userList.updateUser(user);
+                    request.getRequestDispatcher("/home_admin.jsp").forward(request, response);
+                }
+            }
+        } finally {
             out.close();
         }
     }
