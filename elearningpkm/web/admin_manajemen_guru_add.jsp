@@ -4,8 +4,15 @@
     Author     : Accio
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="entity.School"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<% List<School> listSchool = (List<School>) request.getAttribute("list_school");%>
+<% School school;%>
+<% Iterator<School> iterator = listSchool.iterator();%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -91,7 +98,7 @@
                                         <th width="814" bgcolor="#80BFBF" scope="col"><div align="left">Edit Data  Guru </div></th>
                         </tr>
                         <tr>
-                            <td><form action="" method="post" enctype="multipart/form-data" name="form2">
+                            <td><form action="proses-add-guru" method="post" enctype="multipart/form-data" name="form2">
                                     <table width="814" border="0" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td scope="col">&nbsp;</td>
@@ -159,8 +166,8 @@
                                             <td><span class="style16"></span></td>
                                             <td><span class="style16">
                                                     <label for="label7"></label>
-                                                    <select name="select3" id="label7">
-                                                    </select>
+                                                    <select name="school" id="label7"><% while (iterator.hasNext()) {
+                            school = iterator.next();%><option value="<%=school.getSchoolId()%>"><%=school.getSchoolName()%><%=school.getSchoolId()%></option><%}%></select>
                                                 </span></td>
                                         </tr>
                                         <tr>

@@ -53,6 +53,15 @@ public class SchoolList {
         }
     }
 
+    public School findSchool(Integer id) {
+        EntityManager em = getEntityManager();
+        try {
+            return em.find(School.class, id);
+        } finally {
+            em.close();
+        }
+    }
+    
     public void rekamSchool(School school) {
         EntityManager em = null;
         try {

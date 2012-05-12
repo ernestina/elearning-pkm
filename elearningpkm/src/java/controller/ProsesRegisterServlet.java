@@ -45,21 +45,12 @@ public class ProsesRegisterServlet extends HttpServlet {
 
             SchoolList daftarSchool = new SchoolList();
             School school = new School();
-            /*List<School> listSchool = daftarSchool.findSchoolById(schoolname);
-            if (listSchool.isEmpty()) {
-            school = null;
-            } else {
-            school = listSchool.get(0);
-            
-            }*/
 
             UserList daftarUser = new UserList();
             User user = new User();
 
-            //UserRole roleUser = new UserRole();
             UserRoleList roleList = new UserRoleList();
             UserRole userRole = roleList.findUserRole(roleId);
-            //List<UserRole> listRole = roleList.findUserRoleByName(roleName);
 
 
 

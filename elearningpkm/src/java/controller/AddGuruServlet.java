@@ -4,13 +4,16 @@
  */
 package controller;
 
+import entity.School;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.SchoolList;
 
 /**
  *
@@ -35,7 +38,10 @@ public class AddGuruServlet extends HttpServlet {
             String username = (String) session.getAttribute("username");
             Integer role = (Integer) session.getAttribute("role");
             Integer id = (Integer) session.getAttribute("id");
-            if (role != null && role == 1) {
+            if (role != null || role < 2) {
+                SchoolList schoolList = new SchoolList();
+                List<School> listSchool = schoolList.getSchool();
+                request.setAttribute("list_school", listSchool);
                 request.getRequestDispatcher("/admin_manajemen_guru_add.jsp").forward(request, response);
             } else if (role == null) {
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
