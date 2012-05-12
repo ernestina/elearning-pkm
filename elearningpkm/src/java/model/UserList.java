@@ -46,6 +46,19 @@ public class UserList {
         return users;
     }
     
+    public List<User> getUserbyTeacher(Integer roleid) {
+        List<User> users = new ArrayList<User>();
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT a FROM User a where a.roleId.ROLE_ID = ?1");
+            q.setParameter(1, roleid);
+            users = q.getResultList();
+        } finally {
+            em.close();
+        }
+        return users;
+    }
+    
     public User findUser(Integer id) {
         EntityManager em = getEntityManager();
         try {

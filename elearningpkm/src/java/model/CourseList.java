@@ -7,11 +7,7 @@ package model;
 import entity.Course;
 import java.util.ArrayList;
 import java.util.List;
-import javax.persistence.Query;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityNotFoundException;
-import javax.persistence.Persistence;
+import javax.persistence.*;
 import model.exceptions.NonexistentEntityException;
 
 /**

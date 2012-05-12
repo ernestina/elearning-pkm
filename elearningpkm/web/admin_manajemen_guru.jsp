@@ -4,8 +4,14 @@
     Author     : Accio
 --%>
 
+<%@page import="java.util.Iterator"%>
+<%@page import="entity.User"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+<% List<User> listUser = (List<User>) request.getAttribute("list_user");%>
+<% User user;%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -93,7 +99,8 @@
                                         <th width="849" bgcolor="#80BFBF" scope="col"><div align="left">Daftar Guru </div></th>
                         </tr>
                         <tr>
-                            <td><form action="" method="post" enctype="multipart/form-data" name="form2">
+                            <td><% Iterator<User> iterator = listUser.iterator();%>
+                                <form action="" method="post" enctype="multipart/form-data" name="form2">
                                     <table width="849" border="1" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td width="27" scope="col"><div align="center"><span class="style23">No</span></div></td>
@@ -109,11 +116,13 @@
                                             <td width="67" scope="col"><div align="center"><span class="style23">Deleted</span></div></td>
                                             <td width="40" scope="col">&nbsp;</td>
                                         </tr>
+                                        <% while (iterator.hasNext()) {
+                                                user = iterator.next();%>
                                         <tr>
                                             <td scope="col"><span class="style27"></span></td>
-                                            <td scope="col"><span class="style27"></span></td>
-                                            <td scope="col"><span class="style27"></span></td>
-                                            <td scope="col"><span class="style27"></span></td>
+                                            <td scope="col"><span class="style27"><%=user.getFName()%></span></td>
+                                            <td scope="col"><span class="style27"><%=user.getNipNis()%></span></td>
+                                            <td scope="col"><span class="style27"></span><%=user.getEmail()%></td>
                                             <td scope="col"><span class="style27"></span></td>
                                             <td scope="col"><span class="style27"></span></td>
                                             <td scope="col"><span class="style27"></span></td>
@@ -123,6 +132,7 @@
                                             <td scope="col"><span class="style28"></span></td>
                                             <td scope="col"><div align="center"><span class="style15"><a href="edit-guru">edit</a></span></div></td>
                                         </tr>
+                                        <%}%>
                                     </table>
                                 </form>                        </td>
                         </tr>
