@@ -54,8 +54,8 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("username", username);
                 session.setAttribute("role", user.getRoleId().getRoleId());
                 session.setAttribute("id", user.getId());
-                //response.sendRedirect("/home"); om kok kl pake yang dibawah baru mau ya???
-                request.getRequestDispatcher("/home").forward(request, response);
+                response.sendRedirect("home"); //om kok kl pake yang dibawah baru mau ya???
+                //request.getRequestDispatcher("/home").forward(request, response);
 
             }
         

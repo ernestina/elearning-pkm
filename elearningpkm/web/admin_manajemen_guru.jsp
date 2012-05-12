@@ -100,37 +100,27 @@
                         </tr>
                         <tr>
                             <td><% Iterator<User> iterator = listUser.iterator();%>
-                                <form action="" method="post" enctype="multipart/form-data" name="form2">
+                                <form>
                                     <table width="849" border="1" cellpadding="0" cellspacing="0">
                                         <tr>
-                                            <td width="27" scope="col"><div align="center"><span class="style23">No</span></div></td>
                                             <td width="87" scope="col"><div align="center"><span class="style23">Nama</span></div></td>
                                             <td width="78" scope="col"><div align="center"><span class="style23">NIP</span></div></td>
                                             <td width="74" scope="col"><div align="center"><span class="style23">Email</span></div></td>
                                             <td width="88" scope="col"><div align="center"><span class="style23">Username</span></div></td>
-                                            <td width="86" scope="col"><div align="center"><span class="style23">Password</span></div></td>
                                             <td width="72" scope="col"><div align="center"><span class="style23">Telp</span></div></td>
-                                            <td width="74" scope="col"><div align="center"><span class="style23">Last Login </span></div></td>
-                                            <td width="69" scope="col"><div align="center"><span class="style23">Created date </span></div></td>
                                             <td width="61" scope="col"><div align="center"><span class="style23">Confirmed</span></div></td>
-                                            <td width="67" scope="col"><div align="center"><span class="style23">Deleted</span></div></td>
                                             <td width="40" scope="col">&nbsp;</td>
                                         </tr>
                                         <% while (iterator.hasNext()) {
                                                 user = iterator.next();%>
                                         <tr>
-                                            <td scope="col"><span class="style27"></span></td>
                                             <td scope="col"><span class="style27"><%=user.getFName()%></span></td>
                                             <td scope="col"><span class="style27"><%=user.getNipNis()%></span></td>
-                                            <td scope="col"><span class="style27"></span><%=user.getEmail()%></td>
-                                            <td scope="col"><span class="style27"></span></td>
-                                            <td scope="col"><span class="style27"></span></td>
-                                            <td scope="col"><span class="style27"></span></td>
-                                            <td scope="col"><span class="style27"></span></td>
-                                            <td scope="col"><span class="style27"></span></td>
+                                            <td scope="col"><span class="style27"><%=user.getEmail()%></span></td>
+                                            <td scope="col"><span class="style27"><%=user.getUsername()%></span></td>
+                                            <td scope="col"><span class="style27"><%=user.getPhone()%></span></td>
                                             <td scope="col">&nbsp;</td>
-                                            <td scope="col"><span class="style28"></span></td>
-                                            <td scope="col"><div align="center"><span class="style15"><a href="edit-guru">edit</a></span></div></td>
+                                            <td scope="col"><div align="center"><span class="style15"><a name="edit-guru" value="<%=user.getId()%>" href="edit-guru">edit</a></span></div></td>
                                         </tr>
                                         <%}%>
                                     </table>

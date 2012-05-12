@@ -50,7 +50,7 @@ public class UserList {
         List<User> users = new ArrayList<User>();
         EntityManager em = getEntityManager();
         try {
-            Query q = em.createQuery("SELECT a FROM User a where a.roleId.ROLE_ID = ?1");
+            Query q = em.createQuery("Select a from User AS a where a.roleId.roleId = ?1");
             q.setParameter(1, roleid);
             users = q.getResultList();
         } finally {

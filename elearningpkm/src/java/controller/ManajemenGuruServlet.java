@@ -35,24 +35,24 @@ public class ManajemenGuruServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //try {
+        try {
             HttpSession session = request.getSession();
             String username = (String) session.getAttribute("username");
             Integer role = (Integer) session.getAttribute("role");
             Integer id = (Integer) session.getAttribute("id");
-            if (role != null && role == 1) {
-                //Integer rolefind = 3;
+            //if (role != null && role == 1) {
+                Integer rolefind = 3;
                 UserList userList = new UserList();
-                List<User> listUser = userList.getUser();
+                List<User> listUser = userList.getUserbyTeacher(rolefind);
                 request.setAttribute("list_user", listUser);
                 
                 request.getRequestDispatcher("/admin_manajemen_guru.jsp").forward(request, response);
-            } else if (role == null) {
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
-            }
-        //} finally {
-          //  out.close();
-        //}
+            //} else if (role == null) {
+              //  request.getRequestDispatcher("/index.jsp").forward(request, response);
+            //}
+        } finally {
+            out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
