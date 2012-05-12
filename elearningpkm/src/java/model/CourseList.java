@@ -4,7 +4,7 @@
  */
 package model;
 
-import entity2.Course;
+import entity.Course;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Query;

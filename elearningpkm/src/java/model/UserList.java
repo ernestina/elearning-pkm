@@ -4,7 +4,7 @@
  */
 package model;
 
-import entity2.User;
+import entity.User;
 import model.exceptions.NonexistentEntityException;
 import java.util.ArrayList;
 import java.util.Iterator;

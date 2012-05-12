@@ -4,9 +4,9 @@
  */
 package controller;
 
-import entity2.School;
-import entity2.User;
-import entity2.UserRole;
+import entity.School;
+import entity.User;
+import entity.UserRole;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
