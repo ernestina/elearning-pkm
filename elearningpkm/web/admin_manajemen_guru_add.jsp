@@ -98,7 +98,7 @@
                                         <th width="814" bgcolor="#80BFBF" scope="col"><div align="left">Edit Data  Guru </div></th>
                         </tr>
                         <tr>
-                            <td><form action="proses-add-guru" method="post" enctype="multipart/form-data" name="form2">
+                            <td><form action="proses-add-guru" method="post" name="form-add-guru">
                                     <table width="814" border="0" cellpadding="0" cellspacing="0">
                                         <tr>
                                             <td scope="col">&nbsp;</td>
@@ -166,8 +166,8 @@
                                             <td><span class="style16"></span></td>
                                             <td><span class="style16">
                                                     <label for="label7"></label>
-                                                    <select name="school" id="label7"><% while (iterator.hasNext()) {
-                            school = iterator.next();%><option value="<%=school.getSchoolId()%>"><%=school.getSchoolName()%><%=school.getSchoolId()%></option><%}%></select>
+                                                        <select name="school" id="label7"><% while (iterator.hasNext()) {
+                                                            school = iterator.next();%><option value="<%=school.getSchoolId()%>"><%=school.getSchoolName()%><%=school.getSchoolId()%></option><%}%></select>
                                                 </span></td>
                                         </tr>
                                         <tr>

@@ -40,33 +40,36 @@ public class ProsesAddGuruServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        //try {
+        try {
             HttpSession session = request.getSession();
             String username = (String) session.getAttribute("username");
             Integer role = (Integer) session.getAttribute("role");
             Integer id = (Integer) session.getAttribute("id");
            // if (role != null && role == 1) {
+            
+                User user = new User();
+                UserList userList = new UserList();
+                
                 String nipnis = request.getParameter("nipnis");
                 String name = request.getParameter("name");
-                //String email = request.getParameter("email");
+                String email = request.getParameter("email");
                 String uname = request.getParameter("uname");
                 String password = request.getParameter("password");
                 String conpass = request.getParameter("conpass");
-                //String school = request.getParameter("school");
-                String school = "2";
-                //Integer roleId = 2;
+                String school = request.getParameter("school");
+                String phone = request.getParameter("phone");
+                //String school = "2";
+                Integer roleId = 3;
 
                 Integer schoolid = Integer.parseInt(school);
                 SchoolList schoolList = new SchoolList();
                 School sekolah = schoolList.findSchool(schoolid);
 
-                //UserRoleList userRoleList = new UserRoleList();
-                //UserRole userRole = userRoleList.findUserRole(roleId);
+                UserRoleList userRoleList = new UserRoleList();
+                UserRole userRole = userRoleList.findUserRole(roleId);
 
-                User user = new User();
-                UserList userList = new UserList();
 
-                /*if (nipnis.equals("")) {
+                if (nipnis.equals("")) {
                     JOptionPane.showMessageDialog(null, "NIP/NIS harus diisi !");
                     List<School> listSchool = schoolList.getSchool();
                     request.setAttribute("list_school", listSchool);
@@ -106,26 +109,27 @@ public class ProsesAddGuruServlet extends HttpServlet {
                     List<School> listSchool = schoolList.getSchool();
                     request.setAttribute("list_school", listSchool);
                     request.getRequestDispatcher("/admin_manajemen_guru_add.jsp").forward(request, response);
-                } else {*/
+                } else {
                     user.setNipNis(nipnis);
                     user.setFName(name);
-                    //user.setEmail(email);
+                    user.setEmail(email);
                     user.setUsername(uname);
                     user.setPassword(password);
-                    //user.setSchoolId(sekolah);
-                   // user.setRoleId(userRole);
+                    user.setSchoolId(sekolah);
+                    user.setRoleId(userRole);
+                    user.setPhone(phone);
                     userList.rekamUser(user);
                     Integer rolefind = 3;
                     List<User> listUser = userList.getUserbyTeacher(rolefind);
                     request.setAttribute("list_user", listUser);
                     request.getRequestDispatcher("/admin_manajemen_guru.jsp").forward(request, response);
-                //}
+                }
             /*} else if (role == null) {
                 request.getRequestDispatcher("/index.jsp").forward(request, response);
             }*/
-        //} finally {
-          //  out.close();
-       // }
+        } finally {
+            out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

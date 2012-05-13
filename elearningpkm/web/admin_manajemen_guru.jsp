@@ -108,7 +108,7 @@
                                             <td width="74" scope="col"><div align="center"><span class="style23">Email</span></div></td>
                                             <td width="88" scope="col"><div align="center"><span class="style23">Username</span></div></td>
                                             <td width="72" scope="col"><div align="center"><span class="style23">Telp</span></div></td>
-                                            <td width="61" scope="col"><div align="center"><span class="style23">Confirmed</span></div></td>
+                                            <td width="61" scope="col"><div align="center"></div></td>
                                             <td width="40" scope="col">&nbsp;</td>
                                         </tr>
                                         <% while (iterator.hasNext()) {
@@ -119,8 +119,8 @@
                                             <td scope="col"><span class="style27"><%=user.getEmail()%></span></td>
                                             <td scope="col"><span class="style27"><%=user.getUsername()%></span></td>
                                             <td scope="col"><span class="style27"><%=user.getPhone()%></span></td>
-                                            <td scope="col">&nbsp;</td>
-                                            <td scope="col"><div align="center"><span class="style15"><a name="edit-guru" value="<%=user.getId()%>" href="edit-guru">edit</a></span></div></td>
+                                            <td scope="col"><div align="center"><span class="style15"><a name="edit-guru" value="<%=user.getId()%>" href="edit-guru" formmethod="post" formaction="edit-guru">Edit</a></span></div></td>
+                                            <td scope="col"><div align="center"><span class="style15"><a name="edit-guru" value="<%=user.getId()%>" href="hapus-guru">Hapus</a></span></div></td>
                                         </tr>
                                         <%}%>
                                     </table>
@@ -132,10 +132,7 @@
         </table>
         <table width="852" border="0">
             <tr>
-                <th width="36" scope="col"><span class="style15">First</span></th>
-                <th width="68" scope="col"><span class="style15">Previous</span></th>
-                <th width="36" scope="col"><span class="style15">Next</span></th>
-                <th width="32" scope="col"><span class="style15">Last</span></th>
+
                 <th width="658" align="right" scope="col"><span class="style15"><a href="add-guru">Add</a></span></th>
             </tr>
         </table>

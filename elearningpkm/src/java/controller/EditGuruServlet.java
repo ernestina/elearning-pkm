@@ -4,13 +4,16 @@
  */
 package controller;
 
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.UserList;
 
 /**
  *
@@ -29,20 +32,30 @@ public class EditGuruServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        request.getRequestDispatcher("/admin_manajemen_guru_edit.jsp").forward(request, response);
-        try {
+        //request.getRequestDispatcher("/admin_manajemen_guru_edit.jsp").forward(request, response);
+        //try {
             HttpSession session = request.getSession();
             String username = (String) session.getAttribute("username");
             Integer role = (Integer) session.getAttribute("role");
             Integer id = (Integer) session.getAttribute("id");
-            if (role != null && role == 1) {
+          //  if (role != null && role == 1) {
+                Integer rolefind = 3;
+                UserList userList = new UserList();
+                List<User> listUser = userList.getUserbyTeacher(rolefind);
+                request.setAttribute("list_user", listUser);
+                
+                String cekGuru = request.getParameter("edit-guru");
+                Integer GuruId = Integer.parseInt(cekGuru);
+                UserList daftarUser = new UserList();
+                User user = daftarUser.findUser(GuruId);
+                request.setAttribute("edit-guru", user);
                 request.getRequestDispatcher("/admin_manajemen_guru_edit.jsp").forward(request, response);
-            } else if (role == null) {
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
-            }
-        } finally {            
-            out.close();
-        }
+           // } else if (role == null) {
+              //  request.getRequestDispatcher("/index.jsp").forward(request, response);
+            //}
+       // } finally {            
+         //   out.close();
+        //}
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
